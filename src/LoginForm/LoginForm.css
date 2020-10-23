@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+body{
+    font-family: 'Lato', sans-serif;
+    font-size: small;
+}
+.mainDiv{
+    margin: 0px;
+    display: flex;
+    
+}
+.imgDiv{
+    width: 40%;
+    height: 100vh;
+}
+.web-image{
+    width: 100%;
+    height: 100%;
+}
+.mobile-image{
+    display: none;
+}
+.formDiv{
+    margin: 0;
+    width: 60%;
+    height: 100vh;
+    padding: 50px; 
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.heading{
+    color: #4c3e79;
+}
+.form {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.top-form,
+.middle-form,
+.bottom-form,
+.last-form {
+    width: 100%;
+    margin: 10px 0;
+    min-height: 65px;
+    
+}
+.last-form{
+    margin-top: 25px;
+}
+.bottom-form{
+    width: 95%;
+}
+
+
+.form input[type="text"],input[type="number"],input[type="password"],
+.form textarea {
+  border: 2px solid whitesmoke;
+  padding: 10px 5px;
+  outline: none;
+  border-radius: 2px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+
+.form input:focus,
+.form textarea:focus {
+  border-color: #4ca1af;
+  outline: none;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0125),
+    0 0 8px rgba(76, 161, 175, 0.5);
+}
+
+.form .label {
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+  
+ 
+  .top-form .inner-form {
+    width: 35%;
+    float: left;
+    margin-right: 5%;
+  }
+  .top-form .inner-form:last-child{
+      width: 15%;
+  }
+  .middle-form .inner-form,.last-form .inner-form{
+    width: 45%;
+    float: left;
+    margin-right: 5%; 
+  }
+ 
+  .labels{
+      float: right;
+      font-size: small;
+      opacity: 50%;
+  }
+.top-form .inner-form:last-child {
+    margin-right: 0;
+}
+  
+.middle-form {
+    clear: both;
+}
+
+.bottom-form textarea {
+    height: 60px;
+}
+
+.passwordlogo {
+    position:absolute;
+    bottom:10px;
+    right: 2px;
+    width:15px;
+    height:15px;
+}
+.last-form .inner-form{
+        position:relative;   
+}
+.button{
+    text-align: center;
+    
+}
+.button button{
+    margin-top: 30px;
+    border-radius: 25px;
+    outline: none;  
+    border: none;
+    color: #4C3E79;
+    padding: 10px;
+}
+.button :last-child{
+    margin-left: 20px;
+}
+.button button:focus{
+    background: #4C3E79;
+    color: #fff; 
+}
+.bottom-form1,.MAge,.MEmail,.Mmobile,.Mlabels{
+    display: none;
+}
+
+::-webkit-input-placeholder {
+    
+    font-family: 'Lato', sans-serif;
+    opacity: 50%;
+  }
+
+.errored{
+   background-color: rgb(243, 147, 136);
+}
+
+
+@media screen and (max-width: 460px) {
+.MAge,.Mmobile,.MEmail,.bottom-form1,.Mlabels{
+    display: block;
+}
+
+.WEmail,.Wmobile,.WAge,.bottom-form,.form .label,.web-image{
+    display: none;
+}
+.top-form{
+    position: relative;
+}
+.Mlabels{
+    position: absolute;
+    top: -10px;
+    background: none;
+    background-color: white;
+}
+.last-form{
+    position: relative;
+}
+
+
+
+
+.mainDiv{
+    display: block;
+}
+.heading{
+    text-align: center;
+}
+
+.mobile-image{
+    
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+.imgDiv{
+width: 100vw;
+height: 30vh;
+}
+
+.formDiv{
+    height:70vh;
+    padding: 0px;
+    
+    box-sizing: border-box;
+    margin: 0;
+    width: 100vw;
+}
+
+.form{
+    width: 100%;
+    padding: 30px;
+    padding-top: 0px;
+    box-sizing: border-box;
+}
+.top-form,.middle-form,.last-form{
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    min-height: 120px;
+    box-sizing: border-box;
+    margin: 0;
+    border: 3px solid whitesmoke;
+    margin-top: 15px;
+}
+.middle-form,.last-form{
+    min-height: 100px;
+}
+.top-form .inner-form,.middle-form .inner-form,.last-form .inner-form{
+    width: 100%;
+    margin: 0;
+    float: none;
+}
+.top-form .inner-form input,.middle-form .inner-form input,.last-form .inner-form input{
+    width: 90%;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid whitesmoke;
+}
+.top-form input:focus,.middle-form input:focus,.last-form input:focus{
+    box-shadow: none;
+}
+.top-form .inner-form:last-child{
+    width: 100%;
+}
+.bottom-form1{
+    margin-top: 15px;
+    width: 97%;
+}
+.bottom-form1 .txtarea{
+    border: none;
+    border: 3px solid whitesmoke;
+}
+.bottom-form1 .txtarea:focus{
+    box-shadow: none;
+    border: 3px solid whitesmoke;
+}
+.bottom-form1 .label{
+    display: block;
+}
+.passwordlogo {
+    right: 25px;
+}
+
+}
+
+
