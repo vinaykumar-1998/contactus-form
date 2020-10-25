@@ -141,11 +141,7 @@ body{
     display: none;
 }
 
-::-webkit-input-placeholder {
-    
-    font-family: 'Lato', sans-serif;
-    opacity: 50%;
-  }
+
 
 .errored{
    background-color: rgb(243, 147, 136);

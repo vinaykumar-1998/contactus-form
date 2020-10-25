@@ -104,7 +104,7 @@ class LoginForm extends Component{
                                 <div className="Mlabels">Personal Details</div>
                                 <div className="inner-form">
                                     <div className="label">Firstname</div>
-                                    <input type="text" placeholder="Firstname" name="firstname" 
+                                    <input type="text"  name="firstname" placeholder="Firstname"
                                     value={this.state.firstname} onChange={this.onchangeHandler} className={this.state.firstnameerror?"errored":null}/>
                                    
                                
