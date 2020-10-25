@@ -116,20 +116,20 @@ class LoginForm extends Component{
                                 </div>
                                 <div className="inner-form">
                                 <div className="label">age</div>
-                                    <input  type="number" placeholder="18-100" className={this.state.ageerror?"errored":"WAge"} name="age" value={this.state.age} onChange={this.onchangeHandler} />
-                                    <input  type="number" placeholder="Age" className={this.state.ageerror?"errored":"MAge"} name="age" value={this.state.age} onChange={this.onchangeHandler} />
+                                    <input  type="number" placeholder="18-100" className={this.state.ageerror?"erroredWAge":"WAge"} name="age" value={this.state.age} onChange={this.onchangeHandler} />
+                                    <input  type="number" placeholder="Age" className={this.state.ageerror?"erroredMAge":"MAge"} name="age" value={this.state.age} onChange={this.onchangeHandler} />
                                 </div>
                             </div>
                             <div className="middle-form">
                             <div className="inner-form">
                                 <div className="label">Mobile number</div>
-                                    <input  type="number" placeholder="xxxxx xxxxx" className={this.state.mobileerror?"errored":"Wmobile"} name="mobile" value={this.state.mobile} onChange={this.onchangeHandler} />
-                                    <input  type="number" placeholder="Mobile number" className={this.state.mobileerror?"errored":"Mmobile"} name="mobile" value={this.state.mobile} onChange={this.onchangeHandler} />
+                                    <input  type="number" placeholder="xxxxx xxxxx" className={this.state.mobileerror?"erroredWmobile":"Wmobile"} name="mobile" value={this.state.mobile} onChange={this.onchangeHandler} />
+                                    <input  type="number" placeholder="Mobile number" className={this.state.mobileerror?"erroredMmobile":"Mmobile"} name="mobile" value={this.state.mobile} onChange={this.onchangeHandler} />
                                 </div>
                                 <div className="inner-form">
                                 <div className="label">email</div>
-                                    <input type="text" placeholder="abc@xxx.zzz" className={this.state.emailerror?"errored":"WEmail"} name="email" value={this.state.email} onChange={this.onchangeHandler} />
-                                    <input type="text" placeholder="Email" className={this.state.emailerror?"errored":"MEmail"} name="email"value={this.state.email} onChange={this.onchangeHandler} />
+                                    <input type="text" placeholder="abc@xxx.zzz" className={this.state.emailerror?"erroredWEmail":"WEmail"} name="email" value={this.state.email} onChange={this.onchangeHandler} />
+                                    <input type="text" placeholder="Email" className={this.state.emailerror?"erroredMEmail":"MEmail"} name="email"value={this.state.email} onChange={this.onchangeHandler} />
                                 </div>
                             </div>
                             <div className="bottom-form">

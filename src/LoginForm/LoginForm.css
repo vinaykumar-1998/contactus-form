@@ -137,13 +137,13 @@ body{
     background: #4C3E79;
     color: #fff; 
 }
-.bottom-form1,.MAge,.MEmail,.Mmobile,.Mlabels{
+.bottom-form1,.MAge,.MEmail,.Mmobile,.Mlabels,.erroredMAge,.erroredMmobile,.erroredMEmail{
     display: none;
 }
 
 
 
-.errored{
+.errored,.erroredWAge,.erroredWmobile,.erroredWEmail{
    background-color: rgb(243, 147, 136);
 }
 
