@@ -3,6 +3,7 @@ import WebLogo from '../assets/down.jpg'
 import moblielogo from '../assets/down.jpg'
 import passwordLogo from '../assets/password.png'
 import './LoginForm.css'
+import axios from 'axios'
 
 
 const initalstate={
@@ -31,10 +32,28 @@ class LoginForm extends Component{
         e.preventDefault()
         let isvalid=""
             this.state.resetclicked?isvalid=true:isvalid=this.validate()
+            const contactus={
+                firstname:this.state.firstname,
+                lastname:this.state.lastname,
+                age:this.state.age,
+                mobilenumber:this.state.mobile,
+                email:this.state.email,
+                Description:this.state.Description,
+                password:this.state.password,
+                confirmpassword:this.state.confirmpassword
+            }
+            const signupdata = {
+                email:this.state.email,
+                password:this.state.password,
+                returnSecureToken:true
+            }
         if(isvalid){
-            this.setState(initalstate)
+            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1-UjX_SheblPwv00VmWggLOELZ2SnwAk',signupdata)
+            axios.post('https://contactus-form-55541.firebaseio.com/contactus.json',contactus).then(this.setState(initalstate))
+        if(!this.state.resetclicked){
+            this.props.history.push('/signin')
         }
-        
+        }        
     }
     onresetclickedHandler =() =>{
         this.setState({resetclicked:!this.state.resetclicked})
@@ -146,12 +165,12 @@ class LoginForm extends Component{
                             <div className="inner-form">
                                 <div className="label">Password
                                 </div>
-                                    <input  type="password" placeholder="password" name="password" value={this.state.password} onChange={this.onchangeHandler} className={this.state.passworderror?"errored":null}/>
+                                    <input  type="password" placeholder="password" name="password" value={this.state.password} onChange={this.onchangeHandler} className={this.state.passworderror?"erroredpass":"pass"}/>
                                     <img src={passwordLogo} alt="password"width="5%" className="passwordlogo" />
                                 </div>
                                 <div className="inner-form">
                                 <div className="label">confirm password</div>
-                                    <input type="password" placeholder="confirm password" name="confirmpassword" value={this.state.confirmpassword} onChange={this.onchangeHandler} className={this.state.confirmpassworderror?"errored":null}/>
+                                    <input type="password" placeholder="confirm password" name="confirmpassword" value={this.state.confirmpassword} onChange={this.onchangeHandler} className={this.state.confirmpassworderror?"erroredpass":"pass"}/>
                                     <img src={passwordLogo} alt="password"width="5%" className="passwordlogo" />
                                 </div>
                             </div>

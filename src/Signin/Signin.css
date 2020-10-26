@@ -1,0 +1,44 @@
+.signin{
+    margin: 20px auto;
+    border: 2px solid whitesmoke;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    width: 50%;
+    padding: 10px;
+    box-shadow: 2px 3px whitesmoke;
+}
+.forms{
+    text-align: center;
+}
+.signin input{
+    width: 90%;
+    padding: 10px 5px;
+    margin-top: 5px;
+    border: 2px solid whitesmoke;
+}
+.signin input:focus{
+    border-color: #4ca1af;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0125),
+    0 0 8px rgba(76, 161, 175, 0.5);
+}
+.signin button{
+    
+    width: 50%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+}
+.signin button:focus{
+    background-color:#4C3E79;
+}
+
+@media only screen and (max-width:600px){
+    .signin{
+        width: 80%;
+    }
+}
