@@ -12,7 +12,6 @@ const initalstate={
     idtoken:"",
     localid:""
 }
-
 class Signin extends Component{
     state=initalstate
     onChangeHandler = (e) =>{
