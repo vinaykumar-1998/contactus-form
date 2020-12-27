@@ -1,0 +1,15 @@
+.mainDivs{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../assets/mainlogo.jpg);
+}
+
+.name{
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 50px;
+}

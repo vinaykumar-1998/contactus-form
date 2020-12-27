@@ -1,0 +1,86 @@
+.signindiv{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/siginlogo.jpg');
+}
+.upDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.h3{
+    margin: 0px;
+}
+.downDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 30px;
+}
+.forms{
+    width: 35%;
+}
+.inpDivs,.btn1Div,.btn2Div{
+    padding: 15px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+   
+}
+.inps{
+    padding: 10px;
+    box-sizing: border-box;
+    padding-left: 5px;
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.inps:focus{
+  outline: none;
+  
+}
+.btn1Div{
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.btn2Div{
+    text-align: center;
+}
+.btn1Divs{
+    padding: 10px;
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+.btn2Divs{
+    padding: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+@media only screen and (max-width:600px){
+    .downDiv{
+        margin-top: 10px;
+    }
+    .forms{
+        width: 70%;
+    }
+    .h1{
+        font-size: 20px;
+    }
+}
