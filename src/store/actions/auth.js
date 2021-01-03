@@ -28,6 +28,12 @@ export const signinclicked = () =>{
     }
 }
 
+export const signupclicked = () =>{
+    return{
+        type:actionTypes.SIGNUPCLICKED
+    }
+}
+
 
 
 export const auth = (email, password) => {

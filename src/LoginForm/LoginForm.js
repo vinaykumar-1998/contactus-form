@@ -26,13 +26,15 @@ const initalstate={
     passworderror:"",
     confirmpassworderror:"",
     resetclicked:false,
-    signinclicked:false
+    signinclicked:false,
+    signupclicked:false,
+    error:""
 }
 
 class LoginForm extends Component{
     state=initalstate
     onsubmitHandler = (e) =>{
-     
+        this.setState({resetclicked:false})
         e.preventDefault()
         let isvalid=""
             this.state.resetclicked?isvalid=true:isvalid=this.validate()
@@ -52,17 +54,22 @@ class LoginForm extends Component{
                 returnSecureToken:true
             }
         if(isvalid){
-            axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1-UjX_SheblPwv00VmWggLOELZ2SnwAk',signupdata)
-            axios.post('https://contactus-form-55541.firebaseio.com/contactus.json',contactus).then(this.setState(initalstate))
-        if(!this.state.resetclicked){
-            this.props.history.push('/signin')
-        }
+            if(!this.state.resetclicked){
+                axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD1-UjX_SheblPwv00VmWggLOELZ2SnwAk',signupdata).then(this.props.signupclicked()).catch((err)=>{this.setState({error:err.data})})
+                axios.post('https://contactus-form-55541.firebaseio.com/contactus.json',contactus).then(this.setState(initalstate))
+            }
+            
+            if(!this.state.resetclicked){
+                this.props.history.push('/signin')
+            }
         }        
     }
     onresetclickedHandler =() =>{
-        this.setState({resetclicked:!this.state.resetclicked})
+        this.setState(initalstate)
+        this.setState({resetclicked:true})
     }
     signinclicked = () =>{
+        this.props.history.push('/signin')
         this.setState({signinclicked:true})
         this.props.signinclicked()
     }
@@ -90,17 +97,17 @@ class LoginForm extends Component{
       if(!this.state.mobile){
           mobileerror="please enter a valid one"
       }
-     
-      if(!this.state.email){
-          emailerror="please nter a valid one"
+      var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+      if((!this.state.email) || !regexEmail.test(this.state.email)){
+          emailerror="please enter a valid email"
       }
      
-      if(!this.state.password){
+      if(!this.state.password || this.state.password.length<7){
           passworderror="please enter a valid one"
       }
       
-      if(!this.state.confirmpassword){
-          confirmpassworderror="please enter a valid one"
+      if(!this.state.confirmpassword || this.state.confirmpassword.length<7){
+          confirmpassworderror="please enter a valid password"
       }
       if(this.state.password !== this.state.confirmpassword){
           passworderror = "password and confirm password didnt matched"
@@ -118,12 +125,12 @@ class LoginForm extends Component{
    
    
     render(){
-        if(this.state.signinclicked){
-            this.props.history.push('/signin')
-           }
+        
        
         return(
+            
             <div className="mainDiv">
+                {this.state.error}
                 <div className="imgDiv">
                 <img src={WebLogo} alt="webLogo" className="web-image"/>
                     <img src={moblielogo} alt="mobileLogo" className="mobile-image"/>
@@ -162,8 +169,10 @@ class LoginForm extends Component{
                                 <div className="label">email</div>
                                     <input type="text" placeholder="abc@xxx.zzz" className={this.state.emailerror?"erroredWEmail":"WEmail"} name="email" value={this.state.email} onChange={this.onchangeHandler} />
                                     <input type="text" placeholder="Email" className={this.state.emailerror?"erroredMEmail":"MEmail"} name="email"value={this.state.email} onChange={this.onchangeHandler} />
+                                    {this.state.emailerror}
                                 </div>
                             </div>
+                            
                             <div className="bottom-form">
                                 <div className="inner-form">
                                 <div className="label">Description</div>
@@ -212,11 +221,16 @@ class LoginForm extends Component{
         )
     }
 }
-
+const mapStateToProps = (state) =>{
+    return{
+        error:state.error
+    }
+}
 const mapDispatchToProps = (dispatch) =>{
     return{
-        signinclicked : () => dispatch(actioncreators.signinclicked())
+        signinclicked : () => dispatch(actioncreators.signinclicked()),
+        signupclicked : () => dispatch(actioncreators.signupclicked())
     }
 }
 
-export default connect(null,mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps,mapDispatchToProps)(LoginForm)

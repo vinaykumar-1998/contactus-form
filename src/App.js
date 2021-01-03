@@ -17,7 +17,7 @@ class App extends Component {
         <Redirect to="/" />
     </Switch>
      )
-     if(this.props.idtoken || this.props.signinclicked){
+     if(this.props.idtoken ||this.props.signupclicked || this.props.signinclicked){
        routes = (
         <Switch>
         <Route path="/signin" component={Signin}  />
@@ -38,7 +38,8 @@ class App extends Component {
 const mapStateToProps = (state) =>{
   return{
     idtoken:state.token,
-    signinclicked:state.signinclicked
+    signinclicked:state.signinclicked,
+    signupclicked:state.signupclicked
   }
 }
 

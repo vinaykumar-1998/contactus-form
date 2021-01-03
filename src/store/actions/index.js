@@ -1,4 +1,5 @@
 export {
     auth,
-    signinclicked
+    signinclicked,
+    signupclicked
 } from './auth'
